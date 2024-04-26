@@ -1,0 +1,19 @@
+version: "3"
+services:
+  wakeup:
+    build: ./kasmweb
+    privileged: true
+    shm_size: 512m
+    environment:
+      TZ: Asia/Taipei
+      VNC_PW: "password"
+      OXWU_NOTIFY_TOKEN: "[line notify token here]"
+      OXWU_TOWN_NAME: "新北市新店區" # 所在地名稱(用於Notify)
+      OXWU_TOWN_ID: 6500600 # 所在地代號
+      OXWU_ALERT_INTENSITY: 1 # 預警震度 0~7 級(含以上)
+      OXWU_XCLOCK: true # 顯示時鐘
+      OXWU_RTMP_URL: "rtmp://a.rtmp.youtube.com/live2/XXXXXXXXX" # 直播網址
+    ports:
+      - 6905:6901
+    volumes: # (選用) 若要自行指定觸發後的行為可以掛載進去
+      - ./notify.sh:/app/notify.sh
