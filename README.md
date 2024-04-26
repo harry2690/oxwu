@@ -5,6 +5,8 @@
 
 以jscat/oxwu為基礎，安裝ImageMagick，在通知時進行全螢幕截圖並且呼叫Line Notify API進行通報
 
+設定詳情請參考[jscat/oxwu](https://hub.docker.com/r/jscat/oxwu)
+
 > **如果是在Synology NAS上執行此docker，請記得將kasmweb/Dockerfile中RUN sed註解移除**
 
 啟動方式：
